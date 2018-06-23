@@ -291,6 +291,7 @@
     <Content Include="Views\User\Register.cshtml" />
     <Content Include="Views\Idea\Index.cshtml" />
     <Content Include="Views\Shared\_LoggedIn.cshtml" />
+    <Content Include="Views\Idea\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
