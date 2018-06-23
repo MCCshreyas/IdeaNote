@@ -40,10 +40,9 @@ namespace IdeaNote.Web.UI.Controllers
 
             if (user != null)
             {
-                return RedirectToAction("Index", "Idea", new
-                {
-                    id = user.Id
-                });
+                Session["UserID"] = user.Id;
+
+                return RedirectToAction("Index", "Idea");
             }
 
             ViewBag.Message = "Please enter correct credentials";
