@@ -1,48 +1,47 @@
-﻿
-@Styles.Render("~/Content/css")
+﻿@Styles.Render("~/Content/css")
 @Scripts.Render("~/bundles/modernizr")
 
-<body style="padding-top: 0; padding-bottom: 0;">
-    <nav class="navbar navbar-expand-lg navbar-light bg-primary mb-5">
-        <div class="container">
-            <a class="navbar-brand text-white" href="/">VidJot</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+<body style="padding-bottom: 0; padding-top: 0;">
+<nav class="navbar navbar-expand-lg navbar-light bg-primary mb-5">
+    <div class="container">
+        <a class="navbar-brand text-white" href="/">VidJot</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link text-white" href="/">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="/">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="/user/login" class="nav-link text-white">Logout</a>
-                    </li>
-                </ul>
-                <ul class="navbar-nav ml-auto mr-5">
-                    <li class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle text-white" data-toggle="dropdown" id="navbarDropdownMenuLink">Ideas</a>
-                        <div class="dropdown-menu">
-                            <a href="/ideas/Index" class="dropdown-item">Ideas</a>
-                            <a href="/idea/Create" class="dropdown-item">Add Idea</a>
-                        </div>
-                    </li>
-                </ul>
-            </div>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link text-white" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="/">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/user/login" class="nav-link text-white">Logout</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ml-auto mr-5">
+                <li class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle text-white" data-toggle="dropdown" id="navbarDropdownMenuLink">Ideas</a>
+                    <div class="dropdown-menu">
+                        <a href="/ideas/Index" class="dropdown-item">Ideas</a>
+                        <a href="/idea/Create" class="dropdown-item">Add Idea</a>
+                    </div>
+                </li>
+            </ul>
         </div>
-    </nav>
-
-    <div class="container body-content">
-        @RenderBody()
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
     </div>
+</nav>
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+<div class="container body-content">
+    @RenderBody()
+    <footer>
+        <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+    </footer>
+</div>
+
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
+@RenderSection("scripts", false)
 </body>

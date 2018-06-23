@@ -36,7 +36,7 @@ namespace IdeaNote.Web.UI.Controllers
         public ActionResult LogIn(User newRegisterUser)
         {
             var user = _context.Users.FirstOrDefault(u =>
-                    u.email == newRegisterUser.email && u.password == newRegisterUser.password);
+                u.email == newRegisterUser.email && u.password == newRegisterUser.password);
 
             if (user != null)
             {
@@ -47,7 +47,6 @@ namespace IdeaNote.Web.UI.Controllers
 
             ViewBag.Message = "Please enter correct credentials";
             return View();
-
         }
     }
 }

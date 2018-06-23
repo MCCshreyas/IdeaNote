@@ -16,9 +16,9 @@ namespace IdeaNote.Web.UI.Controllers
 
             if (userId != null)
             {
-                var user = _context.Users.FirstOrDefault(u => u.Id == (int)userId);
+                var user = _context.Users.FirstOrDefault(u => u.Id == (int) userId);
 
-                var ideas = _context.Ideas.Where(i => i.UserId == (int)userId);
+                var ideas = _context.Ideas.Where(i => i.UserId == (int) userId);
 
                 if (user != null)
                 {
@@ -29,7 +29,6 @@ namespace IdeaNote.Web.UI.Controllers
             }
 
             return View();
-
         }
 
         [HttpGet]
@@ -43,7 +42,7 @@ namespace IdeaNote.Web.UI.Controllers
         public ActionResult Create(Idea userIdea)
         {
             var userId = Session["UserID"];
-            var user = _context.Users.FirstOrDefault(u => u.Id == (int)userId);
+            var user = _context.Users.FirstOrDefault(u => u.Id == (int) userId);
             userIdea.User = user;
             userIdea.UserId = user.Id;
             _context.Ideas.Add(userIdea);
