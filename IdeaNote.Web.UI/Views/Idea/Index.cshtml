@@ -1,8 +1,36 @@
-﻿@model IdeaNote.Web.UI.Models.User
+﻿@model IEnumerable<IdeaNote.Web.UI.Models.Idea>
 
-@{
+@if (Session["UserID"] == null)
+{
+    <div class="alert alert-danger" role="alert">
+        Please log in to your account first
+    </div>
+}
+else
+{
+
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_LoggedIn.cshtml";
-}
 
-<h3>@Model.name</h3>
+
+
+    <h3 class="mb-3"> Your Ideas @ViewBag.UserName</h3>
+
+    <div class="container">
+        @foreach (var item in Model)
+        {
+            <div class="card card-body mb-2">
+                <h4>@item.title</h4>
+                <p>@item.details</p>
+
+                <form method="post" action="/idea/delete/@item.Id">
+                    <input type="submit" class="btn btn-danger btn-block" value="Delete">
+                </form>
+
+                <form method="post" action="/idea/edit/@item.Id">
+                    <input type="submit" class="btn btn-warning btn-block" value="Edit">
+                </form>
+            </div>
+        }
+    </div>
+}
