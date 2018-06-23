@@ -7,6 +7,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
+
 namespace IdeaNote.Web.UI.Models
 {
     using System;
@@ -21,8 +24,21 @@ namespace IdeaNote.Web.UI.Models
         }
     
         public int Id { get; set; }
+
+
+        [DataType(DataType.Text)]
+        [Required(ErrorMessage = "User name is required")]
+        [DisplayName("Name")]
         public string name { get; set; }
+
+        [DataType(DataType.EmailAddress)]
+        [Required(ErrorMessage = "Email is required")]
+        [DisplayName("Email")]
         public string email { get; set; }
+
+        [DataType(DataType.Password)]
+        [Required(ErrorMessage = "Password is required")]
+        [DisplayName("Password")]
         public string password { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
