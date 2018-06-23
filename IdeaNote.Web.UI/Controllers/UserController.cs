@@ -23,7 +23,7 @@ namespace IdeaNote.Web.UI.Controllers
             _context.SaveChangesAsync();
             return Content("Register sucessfully");
         }
-        
+
         [HttpGet]
         [Route("/user/login")]
         public ActionResult LogIn()
@@ -40,15 +40,15 @@ namespace IdeaNote.Web.UI.Controllers
 
             if (user != null)
             {
-                Content("Log in sucessfully");
-            }
-            else
-            {
-                ViewBag.Message = "Please enter correct credentials";
-                return View();
+                return RedirectToAction("Index", "Idea", new
+                {
+                    id = user.Id
+                });
             }
 
-            return null;
+            ViewBag.Message = "Please enter correct credentials";
+            return View();
+
         }
     }
 }
