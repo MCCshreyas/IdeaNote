@@ -1,9 +1,5 @@
 ﻿@model IdeaNote.Web.UI.Models.Idea
 
-
-@Styles.Render("~/Content/css")
-@Scripts.Render("~/bundles/modernizr")
-
 @if (Session["UserID"] == null)
 {
     @Html.Partial("_Error")

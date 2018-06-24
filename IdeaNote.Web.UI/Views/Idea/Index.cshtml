@@ -9,10 +9,6 @@ else
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_LoggedIn.cshtml";
 
-
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
-
     <div class="container">
         <h3 class="mb-4"> Your Ideas @ViewBag.UserName</h3>
         <h5>Total ideas: @ViewBag.count</h5>
