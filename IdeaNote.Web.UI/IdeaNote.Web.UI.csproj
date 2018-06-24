@@ -190,6 +190,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>IdeaNoteModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\MailConfig.cs" />
     <Compile Include="Models\User.cs">
       <DependentUpon>IdeaNoteModel.tt</DependentUpon>
     </Compile>
@@ -247,6 +248,7 @@
     <Content Include="Models\IdeaNoteModel.edmx.diagram">
       <DependentUpon>IdeaNoteModel.edmx</DependentUpon>
     </Content>
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -295,10 +297,10 @@
     <Content Include="Views\Idea\Create.cshtml" />
     <Content Include="Views\Idea\Index.cshtml" />
     <Content Include="Views\Idea\Edit.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\RepositoryPattern\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

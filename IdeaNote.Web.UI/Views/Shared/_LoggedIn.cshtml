@@ -1,47 +1,55 @@
-﻿@Styles.Render("~/Content/css")
-@Scripts.Render("~/bundles/modernizr")
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IdeaNote</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
 
 <body style="padding-bottom: 0; padding-top: 0;">
-<nav class="navbar navbar-expand-lg navbar-light bg-primary mb-5">
-    <div class="container">
-        <a class="navbar-brand text-white" href="/">VidJot</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+    <nav class="navbar navbar-expand-lg navbar-light bg-primary mb-5">
+        <div class="container">
+            <a class="navbar-brand text-white" href="/">VidJot</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link text-white" href="/">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-white" href="/">About</a>
-                </li>
-                <li class="nav-item">
-                    <a href="/user/login" class="nav-link text-white">Logout</a>
-                </li>
-            </ul>
-            <ul class="navbar-nav ml-auto mr-5">
-                <li class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle text-white" data-toggle="dropdown" id="navbarDropdownMenuLink">Ideas</a>
-                    <div class="dropdown-menu">
-                        <a href="/ideas/Index" class="dropdown-item">Ideas</a>
-                        <a href="/idea/Create" class="dropdown-item">Add Idea</a>
-                    </div>
-                </li>
-            </ul>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link text-white" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="/about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/user/login" class="nav-link text-white">Logout</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav ml-auto mr-5">
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle text-white" data-toggle="dropdown" id="navbarDropdownMenuLink">Ideas</a>
+                        <div class="dropdown-menu">
+                            <a href="/idea/Index" class="dropdown-item">Ideas</a>
+                            <a href="/idea/Create" class="dropdown-item">Add Idea</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
         </div>
+    </nav>
+
+    <div class="container body-content">
+        @RenderBody()
+        <footer>
+            <p>Copyright &copy; @DateTime.Now.Year - Shreyas Jejurkar</p>
+        </footer>
     </div>
-</nav>
 
-<div class="container body-content">
-    @RenderBody()
-    <footer>
-        <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-    </footer>
-</div>
-
-@Scripts.Render("~/bundles/jquery")
-@Scripts.Render("~/bundles/bootstrap")
-@RenderSection("scripts", false)
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", false)
 </body>
+</html>
