@@ -18,7 +18,7 @@ namespace IdeaNote.Web.UI.Controllers
             {
                 var user = _context.Users.FirstOrDefault(u => u.Id == (int) userId);
                 var ideas = _context.Ideas.Where(i => i.UserId == (int) userId);
-                var count = ideas.Count();      
+                var count = ideas.Count();
                 if (user != null)
                 {
                     ViewBag.UserID = userId;

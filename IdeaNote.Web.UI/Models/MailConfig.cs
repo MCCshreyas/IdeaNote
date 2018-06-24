@@ -1,21 +1,22 @@
-﻿using System.Net.Mail;
+﻿using System.Net;
+using System.Net.Mail;
 
 namespace IdeaNote.Web.UI.Models
 {
     public static class MailConfig
     {
-        static string MailAddress = @"ideanoteofficial@gmail.com";
-        static string MailPassword = "9970209265";
-        static string MailSubject = "IdeaNote account confirmation mail";
+        private static readonly string MailAddress = @"ideanoteofficial@gmail.com";
+        private static readonly string MailPassword = "9970209265";
+        private static readonly string MailSubject = "IdeaNote account confirmation mail";
 
-        static SmtpClient SetUpMailServer()
+        private static SmtpClient SetUpMailServer()
         {
             var smtp = new SmtpClient
             {
                 Host = "smtp.gmail.com",
                 Port = 587,
                 UseDefaultCredentials = false,
-                Credentials = new System.Net.NetworkCredential(MailAddress, MailPassword),
+                Credentials = new NetworkCredential(MailAddress, MailPassword),
                 EnableSsl = true
             };
             return smtp;
@@ -36,7 +37,7 @@ namespace IdeaNote.Web.UI.Models
 
             mail.IsBodyHtml = true;
 
-            SmtpClient smtp = SetUpMailServer();
+            var smtp = SetUpMailServer();
 
             smtp.Send(mail);
         }

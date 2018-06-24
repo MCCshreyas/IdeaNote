@@ -28,7 +28,7 @@ namespace IdeaNote.Web.UI.Controllers
             ViewBag.SucessMessage = "Register done sucessfully";
             return RedirectToAction("LogIn", "User");
         }
-        
+
         [HttpGet]
         [Route("/user/login")]
         public ActionResult LogIn()
