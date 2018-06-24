@@ -8,40 +8,54 @@
 else
 {
     ViewBag.Title = "Create";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_LoggedIn.cshtml";
 
-    <h2>Create Idea</h2>
+    
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
 
-    using (Html.BeginForm())
-    {
-        Html.AntiForgeryToken();
-        <div class="col-md-8 mx-auto">
-            <div class="card card-body">
-                @Html.ValidationSummary(true, "", new {@class = "text-danger"})
-                <div class="form-group">
-                    @Html.LabelFor(model => model.title, new {@class = "control-label col-md-2"})
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.title, new {htmlAttributes = new {@class = "form-control"}})
-                        @Html.ValidationMessageFor(model => model.title, "", new {@class = "text-danger"})
+    <div class="container">
+        <div class="card card-body shadow-lg p-3 mb-5 rounded">
+            <h3 class="text-center">Create Idea</h3>
+            <hr />
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="row">
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-sm-2">
+                        @Html.LabelFor(model => model.title, new { @class = "" })
+                    </div>
+                    <div class="col-sm-10">
+                        @Html.EditorFor(model => model.title, new { htmlAttributes = new { @class = "form-control col-sm-10 " } })
+                        @Html.ValidationMessageFor(model => model.title, "", new { @class = "text-danger" })
                     </div>
                 </div>
 
-                <div class="form-group">
-                    @Html.LabelFor(model => model.details, new {@class = "control-label col-md-2"})
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.details, new {htmlAttributes = new {@class = "form-control"}})
-                        @Html.ValidationMessageFor(model => model.details, "", new {@class = "text-danger"})
+                <div class="form-group row">
+                    <div class="col-sm-2 col-form-label">
+                        @Html.LabelFor(model => model.details, new { @class = "" })
+                    </div>
+                    <div class="col-sm-10">
+                        @Html.EditorFor(model => model.details, new { htmlAttributes = new { @class = "form-control col-sm-10" } })
+                        @Html.ValidationMessageFor(model => model.details, "", new { @class = "text-danger" })
                     </div>
                 </div>
 
-                <div class="form-group">
-                    <div class="col-md-10">
-                        <input type="submit" value="Save" class="btn btn-primary"/>
+                <div class="form-group row">
+                    <div class="col-sm-4"></div>
+                    <div class="col">
+                        <input type="submit" value="Save" class="btn btn-primary btn-block" />
                     </div>
+                    <div class="col-sm-4"></div>
                 </div>
-            </div>
+            }
         </div>
-    }
+    </div>
 }
 
 @section Scripts {

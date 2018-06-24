@@ -10,22 +10,44 @@ else
     Layout = "~/Views/Shared/_LoggedIn.cshtml";
 
 
-    <h3 class="mb-3"> Your Ideas @ViewBag.UserName</h3>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
 
     <div class="container">
+        <h3 class="mb-4"> Your Ideas @ViewBag.UserName</h3>
+        <h5>Total ideas: @ViewBag.count</h5>
         @foreach (var item in Model)
         {
-            <div class="card card-body mb-2">
-                <h4>@item.title</h4>
-                <p>@item.details</p>
+            <div class="card card-body shadow p-3 mb-5 bg-white rounded">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6 col-lg-8">
+                            <h5>@item.title</h5>
+                            <p>@item.details</p>
+                        </div>
+                        <div class="col-md-6 col-lg-4">
+                            <form method="post" action="/idea/delete/@item.Id">
+                                @Html.AntiForgeryToken()
+                                <input type="submit" class="btn btn-danger btn-block" value="Delete">
+                            </form>
+                            <div style="margin: 5px;"></div>
+                            <form method="post" action="/idea/edit/@item.Id">
+                                @Html.AntiForgeryToken()
+                                <input type="submit" class="btn btn-warning btn-block" value="Edit">
+                            </form>
+                        </div>
 
-                <form method="post" action="/idea/delete/@item.Id">
-                    <input type="submit" class="btn btn-danger btn-block" value="Delete">
-                </form>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-8">
 
-                <form method="post" action="/idea/edit/@item.Id">
-                    <input type="submit" class="btn btn-warning btn-block" value="Edit">
-                </form>
+                        </div>
+
+                        <div class="col-lg-4">
+
+                        </div>
+                    </div>
+                </div>
             </div>
         }
     </div>
