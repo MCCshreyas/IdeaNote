@@ -23,14 +23,12 @@ namespace IdeaNote.Web.UI.Controllers
         {
             _context.Users.Add(newRegisterUser);
             await _context.SaveChangesAsync();
-            Thread t1 = new Thread(() => MailConfig.SendMail(newRegisterUser));
+            var t1 = new Thread(() => MailConfig.SendMail(newRegisterUser));
             t1.Start();
             ViewBag.SucessMessage = "Register done sucessfully";
             return RedirectToAction("LogIn", "User");
         }
-
-       
-
+        
         [HttpGet]
         [Route("/user/login")]
         public ActionResult LogIn()

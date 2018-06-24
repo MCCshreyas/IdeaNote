@@ -11,13 +11,11 @@ namespace IdeaNote.Web.UI.Controllers
             return View();
         }
 
-
         [HttpGet]
         [Route("/about")]
         public ActionResult About()
         {
             return View();
         }
-
     }
 }

@@ -88,12 +88,9 @@ namespace IdeaNote.Web.UI.Controllers
         public ActionResult EditIdea(Idea editIdea)
         {
             var oldIdeaContent = _context.Ideas.FirstOrDefault(i => i.Id == editIdea.Id);
-
             oldIdeaContent.title = editIdea.title;
             oldIdeaContent.details = editIdea.details;
-
             _context.SaveChanges();
-
             return RedirectToAction("Index", "Idea");
         }
     }
