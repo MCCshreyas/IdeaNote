@@ -20,10 +20,12 @@ namespace IdeaNote.Web.UI.Models
 
         [Required(ErrorMessage = "Idea title is required")]
         [DataType(DataType.Text)]
+        [Display(Name = "Title")]
         public string title { get; set; }
 
         [Required(ErrorMessage = "Idea details are required")]
         [DataType(DataType.MultilineText)]
+        [Display(Name = "Details")]
         public string details { get; set; }
 
         public int UserId { get; set; }
