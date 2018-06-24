@@ -32,7 +32,7 @@ namespace IdeaNote.Web.UI.Models
 
             mail.Subject = MailSubject;
 
-            mail.Body = $@"Thank you for much <b>{user.name}</b> for creating account at IdeaNote." +
+            mail.Body = $@"Thank you so much <b>{user.name}</b> for creating account at IdeaNote." +
                         @"<br/><a href=""http://ideanote.somee.com/user/login"">Click here </a> to note your first idea at IdeaNote";
 
             mail.IsBodyHtml = true;
