@@ -1,4 +1,6 @@
 ﻿using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
 using System.Web.Mvc;
 using IdeaNote.Web.UI.Models;
 
@@ -17,12 +19,17 @@ namespace IdeaNote.Web.UI.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Register(User newRegisterUser)
+        public async Task<ActionResult> Register(User newRegisterUser)
         {
             _context.Users.Add(newRegisterUser);
-            _context.SaveChangesAsync();
-            return Content("Register sucessfully");
+            await _context.SaveChangesAsync();
+            Thread t1 = new Thread(() => MailConfig.SendMail(newRegisterUser));
+            t1.Start();
+            ViewBag.SucessMessage = "Register done sucessfully";
+            return RedirectToAction("LogIn", "User");
         }
+
+       
 
         [HttpGet]
         [Route("/user/login")]
