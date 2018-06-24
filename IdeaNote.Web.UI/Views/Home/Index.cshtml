@@ -1,5 +1,11 @@
-﻿<div class="jumbotron text-center">
+﻿
+
+@Styles.Render("~/Content/css")
+@Scripts.Render("~/bundles/modernizr")
+
+<div class="jumbotron bg-info text-center">
     <h1 class="display-3">Welcome</h1>
-    <p class="lead">Jot down ideas for your newx Youtube videos</p>
-    <a href="/ideas/add" class="btn btn-dark btn-lg">Add Video Idea</a>
+    <p class="lead">Collect your ideas here at one place so you wont forget them.</p>
+    <p class="lead text-dark">Because one idea can change your life<p>
+    <a href="/idea/create" class="btn btn-dark btn-lg">Add Idea</a>
 </div>
