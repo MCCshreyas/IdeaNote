@@ -17,13 +17,13 @@ namespace IdeaNote.Web.UI.Controllers
             if (userId != null)
             {
                 var user = _context.Users.FirstOrDefault(u => u.Id == (int) userId);
-
                 var ideas = _context.Ideas.Where(i => i.UserId == (int) userId);
-
+                var count = ideas.Count();      
                 if (user != null)
                 {
                     ViewBag.UserID = userId;
                     ViewBag.UserName = user.name;
+                    ViewBag.count = count;
                     return View(ideas);
                 }
             }
@@ -39,6 +39,7 @@ namespace IdeaNote.Web.UI.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Create(Idea userIdea)
         {
             var userId = Session["UserID"];
@@ -52,6 +53,7 @@ namespace IdeaNote.Web.UI.Controllers
 
         [HttpPost]
         [Route("/idea/delete/{id}")]
+        [ValidateAntiForgeryToken]
         public ActionResult Delete(int Id)
         {
             var unwantedIdea = _context.Ideas.SingleOrDefault(i => i.Id == Id);
