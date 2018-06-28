@@ -48,6 +48,7 @@ namespace IdeaNote.Web.UI.Controllers
             userIdea.UserId = user.Id;
             _context.Ideas.Add(userIdea);
             _context.SaveChanges();
+            TempData["ideaCreated"] = "Idea added sucessfully";
             return RedirectToAction("Index", "Idea");
         }
 
@@ -63,7 +64,7 @@ namespace IdeaNote.Web.UI.Controllers
                 _context.Ideas.Remove(unwantedIdea);
                 _context.SaveChanges();
             }
-
+            TempData["ideaDelted"] = "Idea deleted sucessfully";
             return RedirectToAction("Index", "Idea");
         }
 
@@ -91,6 +92,7 @@ namespace IdeaNote.Web.UI.Controllers
             oldIdeaContent.title = editIdea.title;
             oldIdeaContent.details = editIdea.details;
             _context.SaveChanges();
+            TempData["ideaEdited"] = "Idea edited sucessfully";
             return RedirectToAction("Index", "Idea");
         }
     }

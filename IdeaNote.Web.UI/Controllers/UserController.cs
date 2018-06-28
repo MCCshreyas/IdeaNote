@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Diagnostics;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Web.Mvc;
@@ -25,7 +26,7 @@ namespace IdeaNote.Web.UI.Controllers
             await _context.SaveChangesAsync();
             var t1 = new Thread(() => MailConfig.SendMail(newRegisterUser));
             t1.Start();
-            ViewBag.SucessMessage = "Register done sucessfully";
+            TempData["SucessMessage"] = "Registration done sucessfully";
             return RedirectToAction("LogIn", "User");
         }
 
@@ -40,10 +41,8 @@ namespace IdeaNote.Web.UI.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult LogIn(User newRegisterUser)
         {
-            var user = _context.Users.FirstOrDefault(u =>
-                u.email == newRegisterUser.email && u.password == newRegisterUser.password);
-
-            if (user != null)
+           var user = _context.Users.FirstOrDefault(u =>
+                 u.email == newRegisterUser.email && u.password == newRegisterUser.password);            if (user != null)
             {
                 Session["UserID"] = user.Id;
 
