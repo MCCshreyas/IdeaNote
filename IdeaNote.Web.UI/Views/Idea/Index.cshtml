@@ -10,8 +10,44 @@ else
     Layout = "~/Views/Shared/_LoggedIn.cshtml";
 
     <div class="container">
+        
+        @if (TempData["ideaCreated"] != null)
+        {
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            @TempData["ideaCreated"]
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        }
+        
+        @if (TempData["ideaDelted"] != null)
+        {
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                @TempData["ideaDelted"]
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        }
+        
+        @if (TempData["ideaEdited"] != null)
+        {
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                @TempData["ideaEdited"]
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        }
+
+
+      
+        
+
         <h3 class="mb-4"> Your Ideas @ViewBag.UserName</h3>
         <h5>Total ideas: @ViewBag.count</h5>
+        <hr/>
         @foreach (var item in Model)
         {
             <div class="card card-body shadow p-3 mb-5 bg-white rounded">
