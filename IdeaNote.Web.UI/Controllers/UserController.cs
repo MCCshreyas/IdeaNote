@@ -41,8 +41,9 @@ namespace IdeaNote.Web.UI.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult LogIn(User newRegisterUser)
         {
-           var user = _context.Users.FirstOrDefault(u =>
-                 u.email == newRegisterUser.email && u.password == newRegisterUser.password);            if (user != null)
+            var user = _context.Users.FirstOrDefault(u =>
+                  u.email == newRegisterUser.email && u.password == newRegisterUser.password);
+            if (user != null)
             {
                 Session["UserID"] = user.Id;
 
