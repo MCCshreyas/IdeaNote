@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.27703.2035
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdeaNote.Web.UI", "IdeaNote.Web.UI\IdeaNote.Web.UI.csproj", "{761B8432-EDE2-4E47-B5CD-3145072F161F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdeaNote.API", "IdeaNote.API\IdeaNote.API.csproj", "{E9CA8308-812B-4085-8728-96B68BEAFA0F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{761B8432-EDE2-4E47-B5CD-3145072F161F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{761B8432-EDE2-4E47-B5CD-3145072F161F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{761B8432-EDE2-4E47-B5CD-3145072F161F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E9CA8308-812B-4085-8728-96B68BEAFA0F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E9CA8308-812B-4085-8728-96B68BEAFA0F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E9CA8308-812B-4085-8728-96B68BEAFA0F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E9CA8308-812B-4085-8728-96B68BEAFA0F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
