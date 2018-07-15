@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Net;
+using System.Net.Http;
 using System.Web.Http;
 using System.Web.Mvc;
 using IdeaNote.Web.UI.Models;
@@ -12,23 +14,23 @@ namespace IdeaNote.Web.UI.Controllers
     {
         readonly IdeaNoteContext _db = new IdeaNoteContext();
 
-        [HttpGet]
-        [Route("api/data/{email}/{password}")]
-        public User Authenticate(string email , string password)
+        [System.Web.Http.HttpGet]
+        [System.Web.Http.Route("api/data/{email}/{password}")]
+        public System.Net.Http.HttpResponseMessage Authenticate(string email , string password)
         {
             var user = _db.Users.FirstOrDefault(u =>
                 u.email == email && u.password == password);
 
             if (user != null)
             {
-                return user;
+                return Request.CreateResponse(HttpStatusCode.OK, user);
             }
 
-            return null;
+            return Request.CreateResponse(HttpStatusCode.BadRequest, "user not found");
         }
 
-        [HttpGet]
-        [Route("api/data/{userID}")]
+        [System.Web.Mvc.HttpGet]
+        [System.Web.Mvc.Route("api/data/{userID}")]
         public void GetIdeas(int userID)
         {
             
