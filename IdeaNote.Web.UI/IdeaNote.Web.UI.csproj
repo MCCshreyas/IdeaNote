@@ -173,7 +173,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\DBIdea.cs" />
     <Compile Include="Models\Idea.cs">
       <DependentUpon>IdeaNoteModel.tt</DependentUpon>
     </Compile>
