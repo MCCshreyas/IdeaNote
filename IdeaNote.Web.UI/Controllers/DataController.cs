@@ -16,7 +16,7 @@ namespace IdeaNote.Web.UI.Controllers
 
         [System.Web.Http.HttpGet]
         [System.Web.Http.Route("api/data/{email}/{password}")]
-        public System.Net.Http.HttpResponseMessage Authenticate(string email , string password)
+        public System.Net.Http.HttpResponseMessage Authenticate(string email, string password)
         {
             var user = _db.Users.FirstOrDefault(u =>
                 u.email == email && u.password == password);
@@ -33,12 +33,27 @@ namespace IdeaNote.Web.UI.Controllers
         [System.Web.Mvc.Route("api/data/{userID}")]
         public void GetIdeas(int userID)
         {
-            
+
         }
 
         // POST api/values
-        public void Post([FromBody]string value)
+        [System.Web.Mvc.HttpPost]
+        [System.Web.Mvc.Route("api/data/createnewaccount")]
+        public System.Net.Http.HttpResponseMessage CreateNewAccount(User user)
         {
+            var newUser = _db.Users.Add(user);
+            var status = _db.SaveChanges();
+            if (status != 1)
+            {
+                return Request.CreateResponse(HttpStatusCode.BadRequest, "Something went wrong");
+            }
+
+            if (status == 1)
+            {
+                return Request.CreateResponse(HttpStatusCode.OK, newUser);
+            }
+
+            return null;
         }
 
         // PUT api/values/5
