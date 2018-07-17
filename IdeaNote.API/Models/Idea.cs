@@ -7,29 +7,18 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-using System.ComponentModel.DataAnnotations;
-
-namespace IdeaNote.Web.UI.Models
+namespace IdeaNote.API.Models
 {
     using System;
     using System.Collections.Generic;
-
-    public partial class Idea 
+    
+    public partial class Idea
     {
         public int Id { get; set; }
-
-        [Required(ErrorMessage = "Idea title is required")]
-        [DataType(DataType.Text)]
-        [Display(Name = "Title")]
         public string title { get; set; }
-
-        [Required(ErrorMessage = "Idea details are required")]
-        [DataType(DataType.MultilineText)]
-        [Display(Name = "Details")]
         public string details { get; set; }
-
         public int UserId { get; set; }
-
+    
         public virtual User User { get; set; }
     }
 }
